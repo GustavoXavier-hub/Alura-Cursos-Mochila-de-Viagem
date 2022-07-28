@@ -12,12 +12,20 @@ form.addEventListener("submit", (evento) => {
     const nome = evento.target.elements['nome']
     const quantidade = evento.target.elements['quantidade']
 
-     criaElemento(nome.value,quantidade.value)
-
-      .value =""
-      .value =""
+    const itemAtual = {
+        "nome":nome.value,
+        "quantidade":quantidade.value
+    }
+    
 })
+criaElemento(nome.value,quantidade.value)
 
+    itens.push(itemAtual)
+
+    localStorage.setItem("item", JSON.stringify(itens))
+
+    nome.value=""
+    quantidade.value=""
 
 function criaElemento(item) {
     const novoItem = document.createElement("li")
@@ -32,16 +40,6 @@ function criaElemento(item) {
 
     novoItem.appendChild(botaoDeleta(item.id))
 
-    lista.appendChild(novoItem)
-
-    const itemAtual = {
-        "nome": nome,
-        "quantidade":quantidade
-    }
-
-    itens.push(itemAtual)
-
-    localStorage.setItem("item", JSON.stringify(itens))
-    
+    lista.appendChild(novoItem)   
 }
 
