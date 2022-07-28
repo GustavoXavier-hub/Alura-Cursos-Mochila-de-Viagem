@@ -1,6 +1,6 @@
 const form = document.getElementById("novoItem")
 const lista = document.getElementById("lista")
-const itens = []
+const itens = localStorage.getItem("itens") || []
 
 itens.forEach( (elemento) => {
     criaElemento(elemento)
