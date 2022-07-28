@@ -1,6 +1,6 @@
 const form = document.getElementById("novoItem")
 const lista = document.getElementById("lista")
-const itens = JSON.parse(localStorage.getItem("itens")) || []
+const itens = []
 
 itens.forEach( (elemento) => {
     criaElemento(elemento)
@@ -34,7 +34,14 @@ function criaElemento(item) {
 
     lista.appendChild(novoItem)
 
-    localStorage.setItem("nome",nome)
-    localStorage.setItem("quantidade",quantidade)
+    const itemAtual = {
+        "nome": nome,
+        "quantidade":quantidade
+    }
+
+    itens.push(itemAtual)
+
+    localStorage.setItem("item", JSON.stringify(itens))
+    
 }
 
