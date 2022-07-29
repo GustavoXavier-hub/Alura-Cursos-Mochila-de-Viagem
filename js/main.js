@@ -24,6 +24,8 @@ form.addEventListener("submit", (evento) => {
     itemAtual.id = existe.id
 
       atualizaElemento(itemAtual) 
+
+      itens[existe.id] = itemAtual
    }else {
     itemAtual.id = itens.length
 
@@ -32,14 +34,12 @@ form.addEventListener("submit", (evento) => {
    itens.push(itemAtual)
    }
    
-    
-})
-
-
     localStorage.setItem("item", JSON.stringify(itens))
 
     nome.value=""
     quantidade.value=""
+
+})    
 
 function criaElemento(item) {
     const novoItem = document.createElement("li")
